@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title> all Laptop</title>
+{% endblock %}
+{% block content %}
+<h1 style="text-align: center;"> All Laptops</h1>
+<center>
+    <table border="4px">
+        <tr>
+            <th>id</th>
+            <th>company</th>
+            <th>Model_name</th>
+            <th>ram</th>
+            <th>rom</th>
+            <th>Processor</th>
+            <th>price</th>
+            <th>weight</th>
+            <th>Action</th>
+        </tr>
+        {% for lap in laptop_list %}
+        <tr>
+            <td>{{lap.id}}</td>
+            <td>{{lap.company}}</td>
+            <td>{{lap.model_name}}</td>
+            <td>{{lap.ram}}</td>
+            <td>{{lap.rom}}</td>
+            <td>{{lap.processor}}</td>
+            <td>{{lap.price}}</td>
+            <td>{{lap.weight}}</td>
+
+
+</center>
+
+
+<td>
+    <a href="{% url 'delete_laptop' lap.id %}">
+        <button class="btn btn-danger">Delete</button>
+    </a>
+</td>
+<td>
+    <a href="{% url 'update_laptop' lap.id %}">
+        <button class="btn btn-warning">update</button>
+    </a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+<br>
+<a href="{%url 'add_laptop' %}">
+    <button class="btn btn-success"> add laptop</button>
+</a>
+{% endblock %}

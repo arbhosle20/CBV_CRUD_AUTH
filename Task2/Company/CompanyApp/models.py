@@ -1,0 +1,17 @@
+from django.db import models
+
+class Laptop(models.Model):
+    company = models.CharField(max_length=60)
+    model_name = models.CharField(max_length=60)
+    ram = models.IntegerField()
+    rom = models.IntegerField()
+    processor = models.CharField(max_length=50)
+    price = models.FloatField()
+    weight = models.FloatField()
+
+    def __str__(self):
+        return f"{self.company},{self.model_name},{self.ram},{self.rom},{self.processor},{self.price},{self.weight}"
+
+
+
+# Create your models here.
